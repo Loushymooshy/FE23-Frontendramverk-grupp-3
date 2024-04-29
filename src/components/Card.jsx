@@ -1,4 +1,4 @@
-import './Card.css';
+import "../styles/Card.css";
 
 import bitcoinLogo from '../assets/Bitcoin-logo.jpg';
 import chipLogo from '../assets/chip.png';
