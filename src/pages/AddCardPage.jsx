@@ -24,7 +24,9 @@ const AddCardPage = () => {
   };
   return (
     <div className="body">
-      <div>ADD A NEW BANK CARD</div>
+      <div className="header-wrapper">
+      <h1>ADD A NEW <br/> BANK CARD</h1>
+      </div>
       <Card
         cardNumber="1234 5678 9101 1121"
         cardHolder="FIRSTNAME LASTNAME"

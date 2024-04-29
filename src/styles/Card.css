@@ -12,6 +12,7 @@
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     background: linear-gradient(145deg, #ffffff, #f0f0f0);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    margin-top: 15%;
   }
   
   .card-top, .card-bottom {
