@@ -1,6 +1,6 @@
 .form-container {
   width: 382px;
-  margin: auto;
+  margin-top: 50px;
 }
 
 .form-container div,
@@ -44,4 +44,5 @@ label {
 
 #vendor {
   font-family: '' Segoe UI ', Tahoma, Geneva, Verdana, sans-serif;';
+  margin-bottom: 20px;
 }

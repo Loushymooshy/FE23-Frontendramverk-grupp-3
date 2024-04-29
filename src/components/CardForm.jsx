@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import '../styles/CardForm.css';
 import Card from './Card';
+import Walletbutton from './button.jsx';
+
 const CardForm = () => {
   const [cardData, setCardData] = useState({
     cardNumber: '',
@@ -9,6 +11,10 @@ const CardForm = () => {
     cvv: '',
     vendor: '',
   });
+
+  const handleClick = () => {
+    console.log('knappen klickades');
+  };
 
   const handleInputChange = e => {
     const { id, value } = e.target;
@@ -99,6 +105,12 @@ const CardForm = () => {
             <option value="evil_corp">Evil Corp</option>
           </select>
         </div>
+        <Walletbutton
+          type="submit"
+          onClick={handleClick}
+          text="LÄGG TILL KORT"
+          className="button2"
+        />
       </form>
     </>
   );

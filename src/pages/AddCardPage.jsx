@@ -1,7 +1,7 @@
 import CardForm from '../components/CardForm.jsx';
 import Card from '../components/Card.jsx';
 import '../index.css';
-import Walletbutton from '../components/button.jsx';
+// import Walletbutton from '../components/button.jsx';
 import { useState } from 'react';
 
 const AddCardPage = () => {
@@ -33,9 +33,9 @@ const AddCardPage = () => {
     setCards(prevCards => [...prevCards, newCard]);
   };
 
-  const handleClick = () => {
-    //     console.log('knappen klickades');
-  };
+  // const handleClick = () => {
+  //   console.log('knappen klickades');
+  // };
   return (
     <div className="container">
       <div className="header">
@@ -53,11 +53,11 @@ const AddCardPage = () => {
           text="LÄGG TILL KORT"
           className="button1" */}
         {/* /> */}
-        <Walletbutton
+        {/* <Walletbutton
           onClick={handleClick}
           text="LÄGG TILL KORT"
           className="button2"
-        />
+        /> */}
       </div>
     </div>
   );
