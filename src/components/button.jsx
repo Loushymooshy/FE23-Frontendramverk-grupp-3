@@ -1,4 +1,5 @@
-import React from 'react';
+
+import '../styles/button.css';
 
 function Walletbutton(props) {
   return (
@@ -10,7 +11,7 @@ function Walletbutton(props) {
 
 export default Walletbutton;
 
-// import './styles/button.css';
+
 // import Walletbutton from './src/button.jsx';
 
 // function App() {
