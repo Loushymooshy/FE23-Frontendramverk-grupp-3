@@ -1,5 +1,4 @@
 import CardForm from '../components/CardForm.jsx';
-import Card from '../components/Card.jsx';
 import '../index.css';
 // import Walletbutton from '../components/button.jsx';
 import { useState } from 'react';

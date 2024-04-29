@@ -109,7 +109,8 @@ const CardForm = () => {
           type="submit"
           onClick={handleClick}
           text="LÄGG TILL KORT"
-          className="button2"
+          className="button"
+          color="secondary"
         />
       </form>
     </>
