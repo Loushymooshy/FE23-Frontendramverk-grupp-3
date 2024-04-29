@@ -22,7 +22,7 @@ const HomePage = () => {
       <div>
         <Walletbutton
           onClick={handleClick}
-          text="LÄGG TILL NYTT KORT"
+          text="ADD NEW CARD"
           className="button"
           color="primary"
         ></Walletbutton>

@@ -108,7 +108,7 @@ const CardForm = () => {
         <Walletbutton
           type="submit"
           onClick={handleClick}
-          text="LÄGG TILL KORT"
+          text="ADD CARD"
           className="button"
           color="secondary"
         />
