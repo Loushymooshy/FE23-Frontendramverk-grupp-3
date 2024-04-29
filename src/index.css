@@ -1,5 +1,22 @@
-.body {
-  background-color: aqua;
+body {
+  background-color: #d0d0d0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container {
+  background-color: #ffffff;
   height: 800px;
   width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+}
+
+.header {
+  font-family: 'Source sans 3', sans-serif;
+  font-size: 35px;
+  font-weight: 700;
+  margin: 10px;
 }
