@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import "../styles/CardForm.css";
-
+import Card from './Card';
 const CardForm = () => {
 
     const [cardData, setCardData] = useState({
@@ -29,13 +29,18 @@ const CardForm = () => {
             utgångsdatum: cardData.expiryDate,
             cvc: cardData.cvv
         };
-        
+
         props.addCard(newCard);
     };
 
 
     return (
     <>
+      <Card 
+      cardNumber={cardData.cardNumber}
+      cardHolder={cardData.cardHolder}
+      expiryDate={cardData.expiryDate}
+    />
     <form className="form-container">
         <div>
             <label htmlFor="cardNumber">Kortnummer:</label>

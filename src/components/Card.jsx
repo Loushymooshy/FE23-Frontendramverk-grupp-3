@@ -15,14 +15,14 @@ function Card({ cardNumber, cardHolder, expiryDate }) {
         </div>
       </div>
       <div className="card-number">
-        {cardNumber}
+        {cardNumber || "xxxx xxxx xxxx xxxx"} 
       </div>
       <div className="card-bottom">
         <div className="card-holder-name">
-          {cardHolder}
+          {cardHolder || "Namn Efternamn"}
         </div>
         <div className="card-expiry">
-           {expiryDate}
+           {expiryDate || "MM/ÅÅ"}
         </div>
       </div>
     </div>

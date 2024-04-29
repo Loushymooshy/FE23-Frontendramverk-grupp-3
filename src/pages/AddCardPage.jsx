@@ -12,12 +12,12 @@ const AddCardPage = () => {
     {id: 2, namn: 'Kort 2', nummer: '2345 6789 1011 1213', utgångsdatum: '11/25', cvc: '234'},
     {id: 3, namn: 'Kort 3', nummer: '3456 7890 1121 1314', utgångsdatum: '10/26', cvc: '345'}
   ]);
-  
+
   const addCard = newCard => {
     setCards(prevCards => [...prevCards, newCard]);
   }
-  
-  
+
+
   const handleClick = () => {
     //     console.log('knappen klickades');
 
@@ -25,11 +25,11 @@ const AddCardPage = () => {
   return (
     <div className="body">
       <div>ADD A NEW BANK CARD</div>
-      <Card
+      {/* <Card
         cardNumber="1234 5678 9101 1121"
         cardHolder="FIRSTNAME LASTNAME"
         expiryDate="MM/YY"
-      />
+      /> */}
       <CardForm addCard={addCard}/>
       <div>
              {/* <Walletbutton
