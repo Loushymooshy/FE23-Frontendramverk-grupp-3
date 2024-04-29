@@ -6,6 +6,11 @@ const AddCardPage = () => {
     <div>
     <div>ADD A NEW BANK CARD</div>
     <CardForm></CardForm>
+    <Card
+        cardNumber="1234 5678 9101 1121"
+        cardHolder="FIRSTNAME LASTNAME"
+        expiryDate="MM/YY"
+      />
     </div>
   )
 }
