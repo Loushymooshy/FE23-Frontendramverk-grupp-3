@@ -47,14 +47,14 @@
 }
 
 .bitcoin_orange {
-  background: linear-gradient(145deg, #ffffff, #f99b03);
+  background: linear-gradient(145deg, #ffffff, #ffae34);
 }
 .ninja_black {
-  background: linear-gradient(145deg, #ffffff, #000);
+  background: linear-gradient(145deg, #ffffff, #222222);
 }
 .block_purple {
-  background: linear-gradient(145deg, #ffffff, #8a03f8);
+  background: linear-gradient(145deg, #ffffff, #8b58f9);
 }
 .evil_red {
-  background: linear-gradient(145deg, #ffffff, #fc0202);
+  background: linear-gradient(145deg, #ffffff, #f33355);
 }
