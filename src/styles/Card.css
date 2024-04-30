@@ -25,10 +25,6 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-.card-logo img {
-  height: 40px;
-}
-
 .card-number {
   font-size: 29px;
   letter-spacing: 2px;
@@ -42,19 +38,48 @@
   color: #555;
 }
 
-.main_grey {
+.main {
   background: linear-gradient(145deg, #ffffff, #f0f0f0);
 }
 
-.bitcoin_orange {
+.main_image {
+  width: 60px;
+}
+
+.bitcoin {
   background: linear-gradient(145deg, #ffffff, #ffae34);
 }
-.ninja_black {
+
+.bitcoin_image {
+  width: 60px;
+}
+
+.ninja {
   background: linear-gradient(145deg, #ffffff, #222222);
 }
-.block_purple {
+
+.ninja_image {
+  width: 60px;
+}
+
+.blockchain {
   background: linear-gradient(145deg, #ffffff, #8b58f9);
 }
-.evil_red {
+
+.blockchain_image {
+  width: 60px;
+}
+
+.evil {
   background: linear-gradient(145deg, #ffffff, #f33355);
+}
+
+.evil_image {
+  width: 60px;
+}
+
+.wifi-and-chip-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

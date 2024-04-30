@@ -13,7 +13,7 @@ const CardForm = () => {
     vendor: '',
   });
 
-  const [selectedClass, setSelectedClass] = useState('main_grey');
+  const [selectedOption, setSelectedOption] = useState('main');
 
   const handleInputChange = e => {
     const { id, value } = e.target;
@@ -24,7 +24,7 @@ const CardForm = () => {
   };
 
   const handleSelectChange = e => {
-    setSelectedClass(e.target.value);
+    setSelectedOption(e.target.value);
   };
 
   const handleSubmit = e => {
@@ -50,12 +50,12 @@ const CardForm = () => {
   return (
     <>
       <Card
-        className={selectedClass}
+        className={selectedOption}
         cardNumber={cardData.cardNumber}
         cardHolder={cardData.cardHolder}
         expiryDate={cardData.expiryDate}
       />
-      <form className="form-container">
+      <form className="form-container" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="cardNumber">Kortnummer:</label>
           <input
@@ -106,14 +106,14 @@ const CardForm = () => {
           <select
             className="form-input"
             id="vendor"
-            value={selectedClass}
+            value={selectedOption}
             onChange={handleSelectChange}
           >
-            <option value="main_grey" disabled selected></option>
-            <option value="bitcoin_orange">Bitcoin Inc</option>
-            <option value="ninja_black">Ninja Bank</option>
-            <option value="block_purple">Block Chain Inc</option>
-            <option value="evil_red">Evil Corp</option>
+            <option value="main" disabled selected></option>
+            <option value="bitcoin">Bitcoin Inc</option>
+            <option value="ninja">Ninja Bank</option>
+            <option value="blockchain">Block Chain Inc</option>
+            <option value="evil">Evil Corp</option>
           </select>
         </div>
         <Walletbutton
