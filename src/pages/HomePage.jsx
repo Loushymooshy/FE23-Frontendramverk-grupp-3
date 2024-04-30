@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 const HomePage = () => {
   const navigate = useNavigate(); //definerar navigate
   //navigate('/addcard');
-
+  
   const jsonCards = window.localStorage.getItem('cards'); //Hämtar korten som sparats i local storage
   const cards = jsonCards === null ? [] : JSON.parse(jsonCards); //Omvandlar jsonData som hämtats i local storage till ett Javascript-objekt
 
@@ -32,6 +32,7 @@ const HomePage = () => {
           expiryDate={card.utgångsdatum}
           cvc={card.cvc}
           vendor={card.vendor}
+          onDelete={() => handleDeleteCard(card.id)}
         />
       ))}
       <div>
