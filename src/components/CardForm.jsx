@@ -2,6 +2,7 @@ import { useState } from 'react';
 import '../styles/CardForm.css';
 import Card from './Card';
 import Walletbutton from './button.jsx';
+import { useNavigate } from 'react-router-dom';
 
 const CardForm = () => {
   const [cardData, setCardData] = useState({
@@ -12,8 +13,11 @@ const CardForm = () => {
     vendor: '',
   });
 
+  const navigate = useNavigate();
+  navigate('/');
+
   const handleClick = () => {
-    console.log('knappen klickades');
+    navigate();
   };
 
   const handleInputChange = e => {

@@ -1,12 +1,17 @@
+import React from 'react';
 import Card from '../components/Card';
 import Walletbutton from '../components/button.jsx';
 import CardStack from '../components/CardStack.jsx';
-
-const handleClick = () => {
-  console.log('knappen klickades');
-};
+import { useNavigate } from 'react-router-dom';
 
 const HomePage = () => {
+  const navigate = useNavigate();
+  navigate('/addcard');
+
+  const handleClick = () => {
+    navigate();
+  };
+
   return (
     <div className="container">
       <div className="header">E-WALLET</div>
