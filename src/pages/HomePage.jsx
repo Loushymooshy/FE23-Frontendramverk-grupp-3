@@ -5,11 +5,12 @@ import CardStack from '../components/CardStack.jsx';
 import { useNavigate } from 'react-router-dom';
 
 const HomePage = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); //definerar navigate
   //navigate('/addcard');
 
-  const jsonCards = window.localStorage.getItem('cards');
-  const cards = jsonCards === null ? [] : JSON.parse(jsonCards);
+  const jsonCards = window.localStorage.getItem('cards'); //Hämtar korten som sparats i local storage
+  const cards = jsonCards === null ? [] : JSON.parse(jsonCards); //Omvandlar jsonData som hämtats i local storage till ett Javascript-objekt
+
   console.log('Loaded cards:', cards);
 
   const handleClick = () => {
