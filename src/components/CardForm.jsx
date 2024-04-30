@@ -13,12 +13,7 @@ const CardForm = () => {
     vendor: '',
   });
 
-  const navigate = useNavigate();
-  navigate('/');
-
-  const handleClick = () => {
-    navigate();
-  };
+  const [selectedClass, setSelectedClass] = useState('main_grey');
 
   const handleInputChange = e => {
     const { id, value } = e.target;
@@ -26,6 +21,10 @@ const CardForm = () => {
       ...prevState,
       [id]: value,
     }));
+  };
+
+  const handleSelectChange = e => {
+    setSelectedClass(e.target.value);
   };
 
   const handleSubmit = e => {
@@ -42,9 +41,15 @@ const CardForm = () => {
     props.addCard(newCard);
   };
 
+  const handleClick = () => {
+    const navigate = useNavigate();
+    navigate('/');
+  };
+
   return (
     <>
       <Card
+        className={selectedClass}
         cardNumber={cardData.cardNumber}
         cardHolder={cardData.cardHolder}
         expiryDate={cardData.expiryDate}
@@ -100,13 +105,14 @@ const CardForm = () => {
           <select
             className="form-input"
             id="vendor"
-            onChange={handleInputChange}
+            value={selectedClass}
+            onChange={handleSelectChange}
           >
-            <option value="" disabled selected></option>
-            <option value="bitcoin_inc">Bitcoin Inc</option>
-            <option value="ninja_bank">Ninja Bank</option>
-            <option value="block_chain_inc">Block Chain Inc</option>
-            <option value="evil_corp">Evil Corp</option>
+            <option value="main_grey" disabled selected></option>
+            <option value="bitcoin_orange">Bitcoin Inc</option>
+            <option value="ninja_black">Ninja Bank</option>
+            <option value="block_purple">Block Chain Inc</option>
+            <option value="evil_red">Evil Corp</option>
           </select>
         </div>
         <Walletbutton
