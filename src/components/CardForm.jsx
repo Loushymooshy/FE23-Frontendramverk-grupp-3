@@ -41,8 +41,9 @@ const CardForm = () => {
     props.addCard(newCard);
   };
 
+  const navigate = useNavigate();
+
   const handleClick = () => {
-    const navigate = useNavigate();
     navigate('/');
   };
 
