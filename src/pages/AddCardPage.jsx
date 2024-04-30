@@ -25,9 +25,7 @@ const AddCardPage = () => {
     }
   };
 
-  // const handleClick = () => {
-  //   console.log('knappen klickades');
-  // };
+ 
   return (
     <div className="container">
       <div className="header">
