@@ -4,8 +4,8 @@ import Card from './Card';
 import Walletbutton from './button.jsx';
 import { useNavigate } from 'react-router-dom';
 
-const CardForm = () => {
-  const [cardData, setCardData] = useState({
+const CardForm = (props) => {
+  const [cardData, setCardData] = useState({ //Sparar Data från formuläret í variabeln cardData
     cardNumber: '',
     cardHolder: '',
     expiryDate: '',
@@ -13,14 +13,34 @@ const CardForm = () => {
     vendor: '',
   });
 
+
   const [selectedClass, setSelectedClass] = useState('main_grey');
 
-  const handleInputChange = e => {
+  const handleInputChange = e => { //Känner av när något förändras i formuläret
     const { id, value } = e.target;
-    setCardData(prevState => ({
-      ...prevState,
-      [id]: value,
-    }));
+
+    if (id === "cardNumber") {
+      const sanitized = value.replace(/\D/g, ''); // Tar bort allt som inte är siffror
+      const trimmed = sanitized.length > 16 ? sanitized.slice(0, 16) : sanitized;
+      const formatted = trimmed.replace(/(.{4})/g, '$1 ').trim(); // Lägger till mellanslag var fjärde siffra
+      setCardData(prevState => ({
+        ...prevState,
+        [id]: formatted
+      }));
+    } else if (id === "expiryDate") {
+      const sanitized = value.replace(/\D/g, ''); // Tar bort allt som inte är siffror
+      const trimmed = sanitized.length > 4 ? sanitized.slice(0, 4) : sanitized;
+      const formatted = trimmed.length > 2 ? `${trimmed.slice(0, 2)}/${trimmed.slice(2)}` : trimmed;
+      setCardData(prevState => ({
+        ...prevState,
+        [id]: formatted
+      }));
+    } else {
+      setCardData(prevState => ({
+        ...prevState,
+        [id]: value
+      }));
+    }
   };
 
   const handleSelectChange = e => {
@@ -40,13 +60,10 @@ const CardForm = () => {
     };
 
     props.addCard(newCard);
-  };
-
-  const navigate = useNavigate();
-
-  const handleClick = () => {
     navigate('/');
   };
+
+   const navigate = useNavigate();
 
   return (
     <>
@@ -65,6 +82,7 @@ const CardForm = () => {
             type="text"
             onChange={handleInputChange}
             placeholder="1234 5678 9123 4567"
+            maxLength="16"
           />
         </div>
 
@@ -88,6 +106,7 @@ const CardForm = () => {
               type="text"
               onChange={handleInputChange}
               placeholder="MM/ÅÅ"
+              maxLength="4"
             />
           </div>
 
@@ -99,6 +118,7 @@ const CardForm = () => {
               type="text"
               onChange={handleInputChange}
               placeholder="123"
+              maxLength="3"
             />
           </div>
         </div>
@@ -120,7 +140,7 @@ const CardForm = () => {
         <Walletbutton
           type="submit"
           onClick={handleClick}
-          text="ADD CARD"
+          text="LÄGG TILL KORT"
           className="button"
           color="secondary"
         />
