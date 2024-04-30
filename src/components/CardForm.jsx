@@ -36,6 +36,7 @@ const CardForm = () => {
       nummer: cardData.cardNumber,
       utgångsdatum: cardData.expiryDate,
       cvc: cardData.cvv,
+      vendor:cardData.vendor
     };
 
     props.addCard(newCard);
