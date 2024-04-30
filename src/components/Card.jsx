@@ -10,7 +10,7 @@ import blockchain from '../assets/blockchain.png';
 
 let imgUrl;
 
-function Card({ className, cardNumber, cardHolder, expiryDate, vendor, onContextMenu}) {
+function Card({ className, cardNumber, cardHolder, expiryDate, vendor, onContextMenu, onClick}) {
   if (className === 'main') {
     imgUrl = main;
   } else if (className === 'bitcoin') {
@@ -24,7 +24,7 @@ function Card({ className, cardNumber, cardHolder, expiryDate, vendor, onContext
   }
 
   return (
-    <div className={`card-container ${className}`} onContextMenu={onContextMenu}>
+    <div className={`card-container ${className}`} onContextMenu={onContextMenu} onClick={onClick}>
       <div className="card-top">
         <div className="wifi-and-chip-container">
           <div className="wifi-logo">

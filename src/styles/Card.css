@@ -91,3 +91,9 @@
   flex-direction: column;
   align-items: center;
 }
+.active {
+  border: 2px solid blue;
+}
+.inactive {
+  opacity: 0.6;
+}

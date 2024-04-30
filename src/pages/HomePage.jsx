@@ -4,13 +4,31 @@ import CardStack from '../components/CardStack.jsx';
 import { useNavigate } from 'react-router-dom';
 import ContextMenu from '../components/ContextMenu.jsx';
 import React, { useState, useEffect } from 'react';
+import '../index.css';
 
 const HomePage = () => {
+  const jsonCards = window.localStorage.getItem('cards'); //Hämtar korten som sparats i local storage
+  const cards = jsonCards === null ? [] : JSON.parse(jsonCards); //Omvandlar jsonData som hämtats i local storage till ett Javascript-objekt
+
+  const jsonActiveCard = window.localStorage.getItem('activeCard');
+  const activeCardInitial = jsonActiveCard ? JSON.parse(jsonActiveCard) : null;
+  const [activeCard, setActiveCard] = useState(activeCardInitial);
+
+  const handleCardClick = (cardId) => {
+    const clickedCard = cards.find(card => card.id === cardId);
+    const newCards = cards.filter(card => card.id !== cardId);
+    if (activeCard) {
+      newCards.push(activeCard); // Lägger till det tidigare aktiva kortet i korthögen
+    }
+    setActiveCard(clickedCard);
+    window.localStorage.setItem('cards', JSON.stringify(newCards)); // Uppdaterar local storage
+    window.localStorage.setItem('activeCard', JSON.stringify(clickedCard));
+  };
+  
+
   const navigate = useNavigate(); //definerar navigate
   //navigate('/addcard');
 
-  const jsonCards = window.localStorage.getItem('cards'); //Hämtar korten som sparats i local storage
-  const cards = jsonCards === null ? [] : JSON.parse(jsonCards); //Omvandlar jsonData som hämtats i local storage till ett Javascript-objekt
 
   const [contextMenu, setContextMenu] = useState(null);
 
@@ -46,8 +64,6 @@ const HomePage = () => {
     };
   }, []);
 
-  console.log('Loaded cards:', cards);
-
   const handleClick = () => {
     navigate('/addcard');
   };
@@ -55,22 +71,18 @@ const HomePage = () => {
   return (
     <div className="container">
       <div className="header">E-PLÅNBOK</div>
-      {/* <div>
-        {cards.map(card => (
-          <Card
-            className={card.id}
-            cardNumber={card.nummer}
-            cardHolder={card.namn}
-            expiryDate={card.utgångsdatum}
-            cvc={card.cvc}
-            vendor={card.vendor}
-            onContextMenu={e => handleContextMenu(e, card.id)}
-          />
-        ))}
-      </div> */}
+      {activeCard && <Card 
+                className={activeCard.id}
+                cardNumber={activeCard.nummer}
+                cardHolder={activeCard.namn}
+                expiryDate={activeCard.utgångsdatum}
+                cvc={activeCard.cvc}
+                vendor={activeCard.vendor}
+                onContextMenu={e => handleContextMenu(e, activeCard.id)}/>}
 
-      {cards.map(card => (
+      {cards.filter(card => card.id !== activeCard?.id).map(card => (
         <Card
+          key={card.id}
           className={card.id}
           cardNumber={card.nummer}
           cardHolder={card.namn}
@@ -78,6 +90,7 @@ const HomePage = () => {
           cvc={card.cvc}
           vendor={card.vendor}
           onContextMenu={e => handleContextMenu(e, card.id)}
+          onClick={() => handleCardClick(card.id)}
         />
       ))}
       <div>
