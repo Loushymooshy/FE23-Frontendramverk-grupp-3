@@ -11,6 +11,8 @@
   border-radius: 8px;
   border: 1px solid #000;
   overflow: none;
+  margin-top: 10px;
+  margin-bottom: 35px;
   cursor:pointer;
 }
 

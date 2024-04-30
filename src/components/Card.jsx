@@ -1,5 +1,4 @@
 import '../styles/Card.css';
-
 import main from '../assets/main.png';
 import chipLogo from '../assets/chip.png';
 import wifiLogo from '../assets/Wifi-logo.png';

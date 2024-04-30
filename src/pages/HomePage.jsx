@@ -1,6 +1,5 @@
 import Card from '../components/Card';
 import Walletbutton from '../components/button.jsx';
-import CardStack from '../components/CardStack.jsx';
 import { useNavigate } from 'react-router-dom';
 import ContextMenu from '../components/ContextMenu.jsx';
 import React, { useState, useEffect } from 'react';

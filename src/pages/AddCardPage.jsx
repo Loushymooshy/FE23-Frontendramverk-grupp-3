@@ -1,10 +1,9 @@
 import CardForm from '../components/CardForm.jsx';
 import '../index.css';
-// import Walletbutton from '../components/button.jsx';
-import { useState } from 'react';
+
 
 const AddCardPage = () => {
-  const MAX_CARDS = 5; // Maximalt antal kort som användaren får lägga till
+  const MAX_CARDS = 3; // Maximalt antal kort som användaren får lägga till
 
   const addCard = newCard => {
     let jsonData = window.localStorage.getItem('cards'); //Hämtar korten som sparats i local storage
