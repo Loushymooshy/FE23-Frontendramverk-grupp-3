@@ -56,7 +56,7 @@ const CardForm = () => {
         cardHolder={cardData.cardHolder}
         expiryDate={cardData.expiryDate}
       />
-      <form className="form-container">
+      <form className="form-container" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="cardNumber">Kortnummer:</label>
           <input
