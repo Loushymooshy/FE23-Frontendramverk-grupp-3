@@ -136,7 +136,7 @@ const CardForm = props => {
             value={selectedOption}
             onChange={handleSelectChange}
           >
-            <option value="main" disabled selected></option>
+            <option value="main" disabled></option>
             <option value="bitcoin">Bitcoin Inc</option>
             <option value="ninja">Ninja Bank</option>
             <option value="blockchain">Block Chain Inc</option>
