@@ -4,8 +4,8 @@ import Card from './Card';
 import Walletbutton from './button.jsx';
 import { useNavigate } from 'react-router-dom';
 
-const CardForm = () => {
-  const [cardData, setCardData] = useState({
+const CardForm = (props) => {
+  const [cardData, setCardData] = useState({ //Sparar Data från formuläret í variabeln cardData
     cardNumber: '',
     cardHolder: '',
     expiryDate: '',
@@ -16,7 +16,7 @@ const CardForm = () => {
 
   const [selectedClass, setSelectedClass] = useState('main_grey');
 
-  const handleInputChange = e => {
+  const handleInputChange = e => { //Känner av när något förändras i formuläret
     const { id, value } = e.target;
 
     if (id === "cardNumber") {
@@ -60,13 +60,10 @@ const CardForm = () => {
     };
 
     props.addCard(newCard);
-  };
-
-  const navigate = useNavigate();
-
-  const handleClick = () => {
     navigate('/');
   };
+
+   const navigate = useNavigate();
 
   return (
     <>
@@ -142,7 +139,6 @@ const CardForm = () => {
         </div>
         <Walletbutton
           type="submit"
-          onClick={handleClick}
           text="ADD CARD"
           className="button"
           color="secondary"
