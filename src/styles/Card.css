@@ -37,8 +37,16 @@
   text-align: center;
 }
 
+.card-holder-name-text-container {
+  font-size: 14px;
+}
+
+.card-holder-date-text {
+  font-size: 14px;
+}
+
 .card-holder-name {
-  font-size: 16px;
+  font-size: 18px;
   color: #555;
 }
 
@@ -64,3 +72,4 @@
   flex-direction: column;
   align-items: center;
 }
+

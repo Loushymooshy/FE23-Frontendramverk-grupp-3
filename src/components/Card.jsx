@@ -29,8 +29,14 @@ function Card({ className, cardNumber, cardHolder, expiryDate, vendor }) {
       </div>
       <div className="card-number">{cardNumber || 'xxxx xxxx xxxx xxxx'}</div>
       <div className="card-bottom">
-        <div className="card-holder-name">{cardHolder || 'Namn Efternamn'}</div>
-        <div className="card-expiry">{expiryDate || 'MM/ÅÅ'}</div>
+        <div className='card-holder-name-text-container'>
+          <div className='card-holder-name-text'>Kortinnehavarens namn</div>
+          <div className="card-holder-name">{cardHolder || 'Namn Efternamn'}</div>
+        </div>
+        <div className='card-holder-date-text-container'>
+          <div className='card-holder-date-text'>giltlig t.o.m</div>
+          <div className="card-expiry">{expiryDate || 'MM/ÅÅ'}</div>
+        </div>
       </div>
     </div>
   );
