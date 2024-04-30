@@ -6,28 +6,40 @@ import { useNavigate } from 'react-router-dom';
 
 const HomePage = () => {
   const navigate = useNavigate();
-  navigate('/addcard');
+  //navigate('/addcard');
+
+const jsonCards = window.localStorage.getItem('cards');
+  const cards = jsonCards === null ? [] : JSON.parse(jsonCards);
+  console.log("Loaded cards:", cards);
 
   const handleClick = () => {
-    navigate();
+    navigate('/addcard');
+
+    
   };
 
   return (
     <div className="container">
-      <div className="header">E-WALLET</div>
+      <div className="header">E-PLÅNBOK</div>
       <div>
         <Card></Card>
       </div>
 
-      {/* <Card
-        cardNumber="1234 5678 9101 1121"
-        cardHolder="FIRSTNAME LASTNAME"
-        expiryDate="MM/YY"
-      /> */}
+      {
+      cards.map(card => 
+        (<Card
+           key={card.id} 
+            cardNumber={card.nummer}
+            cardHolder={card.namn}
+            expiryDate={card.utgångsdatum}
+            cvc={card.cvc}
+            vendor={card.vendor}
+          />)
+      )}
       <div>
         <Walletbutton
           onClick={handleClick}
-          text="ADD NEW CARD"
+          text="LÄGG TILL NYTT KORT"
           className="button"
           color="primary"
         ></Walletbutton>

@@ -11,7 +11,7 @@ import blockchain from '../assets/blockchain.png';
 // vi kommenterar in utkommenterade rader senare när logg bytet fungerar.
 let imgUrl;
 
-function Card({ className, cardNumber, cardHolder, expiryDate }) {
+function Card({ className, cardNumber, cardHolder, expiryDate, vendor }) {
   if (className === 'main') {
     imgUrl = main;
   } else if (className === 'bitcoin') {
@@ -23,10 +23,9 @@ function Card({ className, cardNumber, cardHolder, expiryDate }) {
   } else if (className === 'evil') {
     imgUrl = evil;
   }
+
   return (
-    <div
-      className={`card-container ${className}`} //style={{ backgroundColor: color }}
-    >
+    <div className={`card-container ${className}`}>
       <div className="card-top">
         <div className="wifi-and-chip-container">
           <div className="wifi-logo">
@@ -46,8 +45,16 @@ function Card({ className, cardNumber, cardHolder, expiryDate }) {
       </div>
       <div className="card-number">{cardNumber || 'xxxx xxxx xxxx xxxx'}</div>
       <div className="card-bottom">
-        <div className="card-holder-name">{cardHolder || 'Namn Efternamn'}</div>
-        <div className="card-expiry">{expiryDate || 'MM/ÅÅ'}</div>
+        <div className="card-holder-name-text-container">
+          <div className="card-holder-name-text">Kortinnehavarens namn</div>
+          <div className="card-holder-name">
+            {cardHolder || 'Namn Efternamn'}
+          </div>
+        </div>
+        <div className="card-holder-date-text-container">
+          <div className="card-holder-date-text">giltlig t.o.m</div>
+          <div className="card-expiry">{expiryDate || 'MM/ÅÅ'}</div>
+        </div>
       </div>
     </div>
   );
