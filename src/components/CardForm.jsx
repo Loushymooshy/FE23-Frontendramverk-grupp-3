@@ -56,7 +56,7 @@ const CardForm = props => {
     e.preventDefault();
 
     const newCard = {
-      id: Math.random(),
+      id: selectedOption,
       namn: cardData.cardHolder,
       nummer: cardData.cardNumber,
       utgångsdatum: cardData.expiryDate,
@@ -66,6 +66,7 @@ const CardForm = props => {
 
     props.addCard(newCard);
     navigate('/');
+    console.log(newCard);
   };
 
   const navigate = useNavigate();

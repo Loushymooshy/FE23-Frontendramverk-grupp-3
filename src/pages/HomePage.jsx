@@ -1,10 +1,9 @@
-
 import Card from '../components/Card';
 import Walletbutton from '../components/button.jsx';
 import CardStack from '../components/CardStack.jsx';
 import { useNavigate } from 'react-router-dom';
-import ContextMenu from '../components/ContextMenu.jsx'
-import React, { useState, useEffect  } from 'react';
+import ContextMenu from '../components/ContextMenu.jsx';
+import React, { useState, useEffect } from 'react';
 
 const HomePage = () => {
   const navigate = useNavigate(); //definerar navigate
@@ -18,17 +17,16 @@ const HomePage = () => {
   const handleContextMenu = (e, cardId) => {
     e.preventDefault();
     console.log('Right-click detected on card ID:', cardId);
-     console.log('Event page coordinates:', e.pageX, e.pageY);
+    console.log('Event page coordinates:', e.pageX, e.pageY);
     setContextMenu({
       x: e.pageX,
       y: e.pageY,
-      cardId: cardId
+      cardId: cardId,
     });
-    console.log("menu has been created")
+    console.log('menu has been created');
   };
-  
 
-   const handleDeleteCard = () => {
+  const handleDeleteCard = () => {
     if (contextMenu) {
       const updatedCards = cards.filter(card => card.id !== contextMenu.cardId);
       window.localStorage.setItem('cards', JSON.stringify(updatedCards));
@@ -47,7 +45,6 @@ const HomePage = () => {
       document.removeEventListener('click', handleCloseMenu);
     };
   }, []);
-  
 
   console.log('Loaded cards:', cards);
 
@@ -55,25 +52,32 @@ const HomePage = () => {
     navigate('/addcard');
   };
 
-
-
-
   return (
     <div className="container">
       <div className="header">E-PLÅNBOK</div>
-      <div>
-        <Card className={'main'}></Card>
-      </div>
+      {/* <div>
+        {cards.map(card => (
+          <Card
+            className={card.id}
+            cardNumber={card.nummer}
+            cardHolder={card.namn}
+            expiryDate={card.utgångsdatum}
+            cvc={card.cvc}
+            vendor={card.vendor}
+            onContextMenu={e => handleContextMenu(e, card.id)}
+          />
+        ))}
+      </div> */}
 
       {cards.map(card => (
         <Card
-          key={card.id}
+          className={card.id}
           cardNumber={card.nummer}
           cardHolder={card.namn}
           expiryDate={card.utgångsdatum}
           cvc={card.cvc}
           vendor={card.vendor}
-          onContextMenu={(e) => handleContextMenu(e, card.id)}
+          onContextMenu={e => handleContextMenu(e, card.id)}
         />
       ))}
       <div>
@@ -85,12 +89,12 @@ const HomePage = () => {
         ></Walletbutton>
       </div>
       {contextMenu && (
-         <ContextMenu
-           x={contextMenu.x}
-           y={contextMenu.y}
-           onDelete={handleDeleteCard}
-         />
-       )}
+        <ContextMenu
+          x={contextMenu.x}
+          y={contextMenu.y}
+          onDelete={handleDeleteCard}
+        />
+      )}
     </div>
   );
 };
