@@ -29,7 +29,9 @@ const AddCardPage = () => {
   ]);
 
   const addCard = newCard => {
-    setCards(prevCards => [...prevCards, newCard]);
+    let jsonData = window.localStorage.getItem('cards');
+    console.log(jsonData);
+    
   };
 
   // const handleClick = () => {
