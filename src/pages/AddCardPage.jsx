@@ -40,7 +40,7 @@ const AddCardPage = () => {
   return (
     <div className="container">
       <div className="header">
-        ADD A NEW<br></br>BANK CARD
+        LÄGG TILL ETT<br></br>NYTT BANKKORT
       </div>
       {/* <Card
         cardNumber="1234 5678 9101 1121"
