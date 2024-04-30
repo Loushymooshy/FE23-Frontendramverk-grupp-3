@@ -20,7 +20,7 @@ const jsonCards = window.localStorage.getItem('cards');
 
   return (
     <div className="container">
-      <div className="header">E-WALLET</div>
+      <div className="header">E-PLÅNBOK</div>
       <div>
         <Card></Card>
       </div>
@@ -39,7 +39,7 @@ const jsonCards = window.localStorage.getItem('cards');
       <div>
         <Walletbutton
           onClick={handleClick}
-          text="ADD NEW CARD"
+          text="LÄGG TILL NYTT KORT"
           className="button"
           color="primary"
         ></Walletbutton>

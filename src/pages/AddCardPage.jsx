@@ -26,7 +26,7 @@ import { useState } from 'react';
   return (
     <div className="container">
       <div className="header">
-        ADD A NEW<br></br>BANK CARD
+        LÄGG TILL ETT<br></br>NYTT BANKKORT
       </div>
       <CardForm addCard={addCard} />
 
