@@ -139,7 +139,6 @@ const CardForm = (props) => {
         </div>
         <Walletbutton
           type="submit"
-          onClick={handleClick}
           text="LÄGG TILL KORT"
           className="button"
           color="secondary"
