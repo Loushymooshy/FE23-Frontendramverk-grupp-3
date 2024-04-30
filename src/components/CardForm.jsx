@@ -4,8 +4,9 @@ import Card from './Card';
 import Walletbutton from './button.jsx';
 import { useNavigate } from 'react-router-dom';
 
-const CardForm = (props) => {
-  const [cardData, setCardData] = useState({ //Sparar Data från formuläret í variabeln cardData
+const CardForm = props => {
+  const [cardData, setCardData] = useState({
+    //Sparar Data från formuläret í variabeln cardData
     cardNumber: '',
     cardHolder: '',
     expiryDate: '',
@@ -13,38 +14,42 @@ const CardForm = (props) => {
     vendor: '',
   });
 
+  const [selectedOption, setSelectedOption] = useState('main');
 
-  const [selectedClass, setSelectedClass] = useState('main_grey');
-
-  const handleInputChange = e => { //Känner av när något förändras i formuläret
+  const handleInputChange = e => {
+    //Känner av när något förändras i formuläret
     const { id, value } = e.target;
 
-    if (id === "cardNumber") {
+    if (id === 'cardNumber') {
       const sanitized = value.replace(/\D/g, ''); // Tar bort allt som inte är siffror
-      const trimmed = sanitized.length > 16 ? sanitized.slice(0, 16) : sanitized;
+      const trimmed =
+        sanitized.length > 16 ? sanitized.slice(0, 16) : sanitized;
       const formatted = trimmed.replace(/(.{4})/g, '$1 ').trim(); // Lägger till mellanslag var fjärde siffra
       setCardData(prevState => ({
         ...prevState,
-        [id]: formatted
+        [id]: formatted,
       }));
-    } else if (id === "expiryDate") {
+    } else if (id === 'expiryDate') {
       const sanitized = value.replace(/\D/g, ''); // Tar bort allt som inte är siffror
       const trimmed = sanitized.length > 4 ? sanitized.slice(0, 4) : sanitized;
-      const formatted = trimmed.length > 2 ? `${trimmed.slice(0, 2)}/${trimmed.slice(2)}` : trimmed;
+      const formatted =
+        trimmed.length > 2
+          ? `${trimmed.slice(0, 2)}/${trimmed.slice(2)}`
+          : trimmed;
       setCardData(prevState => ({
         ...prevState,
-        [id]: formatted
+        [id]: formatted,
       }));
     } else {
       setCardData(prevState => ({
         ...prevState,
-        [id]: value
+        [id]: value,
       }));
     }
   };
 
   const handleSelectChange = e => {
-    setSelectedClass(e.target.value);
+    setSelectedOption(e.target.value);
   };
 
   const handleSubmit = e => {
@@ -56,19 +61,19 @@ const CardForm = (props) => {
       nummer: cardData.cardNumber,
       utgångsdatum: cardData.expiryDate,
       cvc: cardData.cvv,
-      vendor:cardData.vendor
+      vendor: cardData.vendor,
     };
 
     props.addCard(newCard);
     navigate('/');
   };
 
-   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   return (
     <>
       <Card
-        className={selectedClass}
+        className={selectedOption}
         cardNumber={cardData.cardNumber}
         cardHolder={cardData.cardHolder}
         expiryDate={cardData.expiryDate}
@@ -127,14 +132,14 @@ const CardForm = (props) => {
           <select
             className="form-input"
             id="vendor"
-            value={selectedClass}
+            value={selectedOption}
             onChange={handleSelectChange}
           >
-            <option value="main_grey" disabled selected></option>
-            <option value="bitcoin_orange">Bitcoin Inc</option>
-            <option value="ninja_black">Ninja Bank</option>
-            <option value="block_purple">Block Chain Inc</option>
-            <option value="evil_red">Evil Corp</option>
+            <option value="main" disabled selected></option>
+            <option value="bitcoin">Bitcoin Inc</option>
+            <option value="ninja">Ninja Bank</option>
+            <option value="blockchain">Block Chain Inc</option>
+            <option value="evil">Evil Corp</option>
           </select>
         </div>
         <Walletbutton
