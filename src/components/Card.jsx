@@ -8,7 +8,6 @@ import evil from '../assets/evil.png';
 import ninja from '../assets/ninja.png';
 import blockchain from '../assets/blockchain.png';
 
-// vi kommenterar in utkommenterade rader senare när logg bytet fungerar.
 let imgUrl;
 
 function Card({ className, cardNumber, cardHolder, expiryDate, vendor }) {

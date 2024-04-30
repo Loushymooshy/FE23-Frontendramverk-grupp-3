@@ -7,8 +7,8 @@ const AddCardPage = () => {
   const MAX_CARDS = 5; // Maximalt antal kort som användaren får lägga till
 
   const addCard = newCard => {
-    let jsonData = window.localStorage.getItem('cards');
-    let cards = jsonData ? JSON.parse(jsonData) : [];
+    let jsonData = window.localStorage.getItem('cards'); //Hämtar korten som sparats i local storage
+    let cards = jsonData ? JSON.parse(jsonData) : []; //Omvandlar jsonData som hämtats i local storage till ett Javascript-objekt
 
     if (cards.length >= MAX_CARDS) {
       alert(`Du kan inte lägga till fler än ${MAX_CARDS} kort.`);
@@ -34,7 +34,7 @@ const AddCardPage = () => {
       <div className="header">
         LÄGG TILL ETT<br></br>NYTT BANKKORT
       </div>
-      <CardForm addCard={addCard} />
+      <CardForm addCard={addCard} /> 
 
     </div>
   );}
