@@ -8,7 +8,7 @@ function Card({ className, cardNumber, cardHolder, expiryDate, vendor }) {
   const { color, logo } = vendorStyles[vendor] || {color: "defaultColor", logo: chipLogo};
 
   return (
-    <div className={`card-container ${className}` style={{ backgroundColor: color }}>
+    <div className={`card-container ${className}`} style={{ backgroundColor: color }}>
       <div className="card-top">
         <div className="wifi-and-chip-container">
           <div className="wifi-logo">
